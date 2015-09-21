@@ -1,7 +1,7 @@
 # plot1.R: Creates a graph of total PM emissions by year
 library(dplyr)
 
-# Load and clean incoming data
+# Load and clean incoming data: just calculate emissions by year
 load_and_clean_dataset <- function(filename) {
   nei <- readRDS("summarySCC_PM25.rds")
   nei %>% group_by(year) %>% summarize(total = sum(Emissions))
@@ -13,14 +13,14 @@ make_plot <- function(dataset) {
   plot(dataset$year, dataset$total,
        pch=15,
        col="blue",
-       main="PM2.5 Emissions by Year per National Emissions Inventory",
+       main="National PM2.5 Emissions by Year",
        xlab="Year",
        xaxt='n',
        ylab="Total Emissions in Tons")
   axis(side=1, at=dataset$year, labels=T)
   # Add a linear fit line
   model <- lm(dataset$total ~ dataset$year)
-  abline(model)
+  abline(model, col="red")
 }
 
 # Create the requested file
