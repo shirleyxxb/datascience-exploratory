@@ -23,7 +23,7 @@ make_plot <- function(dataset) {
                 geom = c("point", "smooth"),
                 method = "lm")
   # Set the axis labels explicitly
-  plot <- plot + scale_x_continuous(breaks = unique(data$year))
+  plot <- plot + scale_x_continuous(breaks = unique(dataset$year))
   # Add some space between the facets
   plot <- plot + theme(panel.margin = unit(1, "lines"))
   plot
