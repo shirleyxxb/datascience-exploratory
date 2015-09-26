@@ -1,4 +1,4 @@
-# plot4.R: How have emissions from Coal-related sources changed?
+# plot5.R: How have emissions from Motor Vehicles in Baltimore changed?
 library(dplyr)
 library(ggplot2)
 library(grid)
